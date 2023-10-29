@@ -16,9 +16,6 @@ export const puzzleRouter = createTRPCRouter({
   postGuess: publicProcedure
     .input(z.object({ guess: z.string().min(1), puzzleId: z.number() }))
     .mutation(async ({ ctx, input }) => {
-      // simulate a slow db call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-
       return ctx.db.guess.create({
         data: {
           guess: input.guess,

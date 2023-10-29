@@ -1,16 +1,12 @@
 import Head from "next/head";
 
-import { Bungee, Chivo_Mono, Gabarito } from "next/font/google";
+import { Bungee, Gabarito } from "next/font/google";
 import Link from "next/link";
-import Image from "next/image";
+import DonutBackground from "~/components/DonutBackground";
 
 const bungee = Bungee({
   weight: "400",
   subsets: ["latin"],
-});
-
-const chivoMono = Chivo_Mono({
-  subsets: ["latin-ext"],
 });
 
 const gabarito = Gabarito({
@@ -31,22 +27,7 @@ export default function Home() {
           " flex min-h-screen flex-col items-center justify-center"
         }
       >
-        <div className="fixed -z-10 flex h-full w-full justify-center overflow-hidden sm:pt-10">
-          <Image
-            alt=""
-            src="/EverythingBagelAll.png"
-            width={400}
-            height={400}
-            className="fixed animate-spin-slower"
-          />
-          <Image
-            alt=""
-            src="/EverythingBagelCenter.png"
-            width={400}
-            height={400}
-            className="fixed animate-spin-slow"
-          />
-        </div>
+        <DonutBackground />
         <div className="container flex flex-col items-center justify-center gap-10">
           <div className="flex flex-col gap-5">
             <h1
@@ -83,10 +64,10 @@ export default function Home() {
               Very Busy!
             </Link>
             <Link
-              href="/puzzles/juju-toobootie"
+              href="/puzzles/verse-jumping"
               className="col-span-4 rounded-lg bg-white py-2.5 text-center tracking-wider text-black hover:opacity-75"
             >
-              Juju Toobootie
+              Verse-Jumping
             </Link>
             <Link
               href="/puzzles/raccoontouille"
@@ -96,7 +77,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        <p className="fixed bottom-2 rounded bg-black px-1 py-0.5 text-xs">
+        <p className="fixed bottom-2 rounded bg-black px-1 py-0.5 text-xs tracking-wide">
           Everything Bagel made by{" "}
           <a
             target="_blank"
