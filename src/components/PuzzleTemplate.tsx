@@ -72,7 +72,7 @@ export default function PuzzleTemplate(
         }
       >
         <DonutBackground />
-        <div className="container flex max-w-2xl flex-col items-center gap-5 sm:gap-10">
+        <div className="container flex max-w-xl flex-col items-center gap-5 sm:gap-10">
           <div className="flex flex-col gap-5 pt-20 text-center sm:pt-40">
             <h1
               className={bungee.className + " text-3xl text-white sm:text-5xl"}

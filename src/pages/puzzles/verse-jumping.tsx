@@ -56,7 +56,8 @@ export default function VerseJumping() {
     newStepStates[currStep] = nextUniverse.isCorrectChoice
       ? StepState.CORRECT
       : StepState.WRONG;
-    if (nextStep < stepStates.length) {
+    // Don't create a step state beyond the final step!
+    if (nextStep < stepStates.length - 1) {
       newStepStates[nextStep] = StepState.CURRENT;
     }
     setStepStates(newStepStates);
@@ -73,14 +74,18 @@ export default function VerseJumping() {
 
     setResult(nextUniverse.result);
 
-    setCurrStep(nextStep);
+    setCurrStep(nextStep); // Step 8 is not a real step, but it's the correct index for the final traits
   };
 
   const jumpToPreviousUniverse = () => {
     const prevStep = currStep - 1;
 
     const newStepStates = [...stepStates];
-    newStepStates[currStep] = StepState.FUTURE;
+
+    // Don't create a step state beyond the final step!
+    if (currStep < stepStates.length) {
+      newStepStates[currStep] = StepState.FUTURE;
+    }
     newStepStates[prevStep] = StepState.CURRENT;
     setStepStates(newStepStates);
 
@@ -106,7 +111,7 @@ export default function VerseJumping() {
         </p>
       }
     >
-      <div className="flex flex-col justify-center gap-y-5">
+      <div className="flex max-w-lg flex-col justify-center gap-y-5">
         <div className="rounded-lg border border-white bg-black px-4 py-3 tracking-wide">
           <h3>Your current traits:</h3>
           <ul
@@ -153,7 +158,7 @@ export default function VerseJumping() {
           </button>
         ) : currStep < stepStates.length ? (
           <>
-            <p>Jump through the universe where...</p>
+            <p>Jump through a universe where...</p>
             <div className="flex flex-col gap-y-2">
               {UNIVERSES[currStep]?.map((universe, index) => (
                 <button
