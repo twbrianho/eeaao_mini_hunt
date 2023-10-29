@@ -53,7 +53,7 @@ export default function ProgressBar(props: ProgressBarProps) {
 
   return (
     <nav aria-label="Progress">
-      <ol role="list" className="flex items-center">
+      <ol role="list" className="flex items-center justify-center">
         {stepStates.map((stepState, stepIdx) => (
           <li
             key={stepIdx}

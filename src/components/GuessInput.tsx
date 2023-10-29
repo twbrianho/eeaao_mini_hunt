@@ -3,6 +3,7 @@ import sanitizeGuess from "~/utils/sanitizeGuess";
 import { api } from "~/utils/api";
 import { type PuzzleData } from "~/utils/types";
 import { CheckCircleIcon, XCircleIcon } from "@heroicons/react/20/solid";
+import PageLoadingSpinner from "~/components/PageLoadingSpinner";
 
 interface GuessHistory {
   guess: string;
@@ -23,7 +24,7 @@ export default function GuessInput(props: GuessInputProps) {
 
   const postGuessMutation = api.puzzle.postGuess.useMutation();
 
-  if (!puzzleData) return <p>Loading...</p>;
+  if (!puzzleData) return <PageLoadingSpinner />;
 
   const handleGuessChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setGuessInput(sanitizeGuess(e.target.value));
