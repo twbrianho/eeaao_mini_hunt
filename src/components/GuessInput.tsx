@@ -32,6 +32,7 @@ export default function GuessInput(props: GuessInputProps) {
 
   const handleGuessSubmit = (e: FormEvent): void => {
     e.preventDefault();
+    if (guessInput === "") return;
     let isCorrect = false;
     if (guessInput === puzzleData.answer) {
       isCorrect = true;

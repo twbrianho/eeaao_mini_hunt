@@ -111,7 +111,7 @@ export default function VerseJumping() {
         </p>
       }
     >
-      <div className="flex max-w-lg flex-col justify-center gap-y-5">
+      <div className="flex w-[304px] flex-col justify-center gap-y-5 sm:w-[472px]">
         <div className="rounded-lg border border-white bg-black px-4 py-3 tracking-wide">
           <h3>Your current traits:</h3>
           <ul
