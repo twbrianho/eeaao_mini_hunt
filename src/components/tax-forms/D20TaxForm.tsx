@@ -1,8 +1,10 @@
 import TaxFormTemplate from "~/components/tax-forms/TaxFormTemplate";
 import D20Map from "./D20Map.png";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function D20TaxForm() {
+  const [skipPuzzle, setSkipPuzzle] = useState(false);
   return (
     <TaxFormTemplate
       title="D20"
@@ -38,6 +40,19 @@ export default function D20TaxForm() {
           doors are unlocked.
         </li>
       </ul>
+      <div className="flex flex-col items-end">
+        <button
+          onClick={() => setSkipPuzzle(true)}
+          className="rounded bg-orange-950 px-3 py-2 text-orange-50"
+        >
+          {"Don't like logic puzzles?"}
+        </button>
+        {skipPuzzle && (
+          <div className="mt-2 text-right text-xs">
+            {'Hey, me neither! The answer is "R".'}
+          </div>
+        )}
+      </div>
     </TaxFormTemplate>
   );
 }
