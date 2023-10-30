@@ -1,24 +1,26 @@
-import { Gabarito } from "next/font/google";
+import { Bungee } from "next/font/google";
 import Image from "next/image";
+import EverythingBagelCenter from "../images/EverythingBagelCenter.png";
 
-const gabarito = Gabarito({
-  subsets: ["latin-ext"],
+const bungee = Bungee({
+  weight: "400",
+  subsets: ["latin"],
 });
 
 export default function PageLoadingSpinner() {
   return (
     <div className="flex h-screen w-screen items-center justify-center">
       <Image
-        src="/EverythingBagelCenter.png"
+        src={EverythingBagelCenter}
         alt={""}
         width={50}
         height={50}
-        className="animate-spin-slow"
+        className="animate-spin-medium"
       />
       <span
         className={
-          gabarito.className +
-          " animate-pulse text-xl font-semibold tracking-wide text-white"
+          bungee.className +
+          " ml-2 animate-pulse text-xl font-semibold tracking-wide text-white"
         }
       >
         Loading...

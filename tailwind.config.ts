@@ -9,9 +9,10 @@ export default {
         sans: ["var(--font-sans)", ...fontFamily.sans],
       },
       animation: {
-        'spin-slow': 'spin 20s linear infinite',
-        'spin-slower': 'spin 40s linear infinite',
-      }
+        "spin-medium": "spin 10s linear infinite",
+        "spin-slow": "spin 20s linear infinite",
+        "spin-slower": "spin 40s linear infinite",
+      },
     },
   },
   plugins: [],

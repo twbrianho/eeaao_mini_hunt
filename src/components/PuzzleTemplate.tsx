@@ -22,7 +22,7 @@ const gabarito = Gabarito({
 interface PuzzleTemplateProps {
   puzzleId: number;
   title: string;
-  flavortext: ReactNode;
+  flavortext?: ReactNode;
 }
 
 export default function PuzzleTemplate(
