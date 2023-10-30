@@ -6,6 +6,7 @@ import { Trait } from "~/utils/verse-jumping/trait";
 import { type Universe, UNIVERSES } from "~/utils/verse-jumping/universes";
 import { JetBrains_Mono } from "next/font/google";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
+import { verseJumpingSolvedAtom } from "~/utils/atoms";
 
 const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin-ext"],
@@ -110,6 +111,7 @@ export default function VerseJumping() {
           <i>me!</i>
         </p>
       }
+      puzzleSolvedAtom={verseJumpingSolvedAtom}
     >
       <div className="flex w-[304px] flex-col justify-center gap-y-5 sm:w-[472px]">
         <div className="rounded-lg border border-white bg-black px-4 py-3 tracking-wide">

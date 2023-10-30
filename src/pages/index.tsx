@@ -2,6 +2,15 @@ import { Bungee, Gabarito } from "next/font/google";
 import Link from "next/link";
 import DonutBackground from "~/components/DonutBackground";
 import HeadTemplate from "~/components/HeadTemplate";
+import { cva } from "class-variance-authority";
+import {
+  metaSolvedAtom,
+  raccoontouilleSolvedAtom,
+  taxFormsSolvedAtom,
+  verseJumpingSolvedAtom,
+  veryBusySolvedAtom,
+} from "~/utils/atoms";
+import { useAtom } from "jotai";
 
 const bungee = Bungee({
   weight: "400",
@@ -13,6 +22,35 @@ const gabarito = Gabarito({
 });
 
 export default function Home() {
+  const [taxFormsSolved] = useAtom(taxFormsSolvedAtom);
+  const [veryBusySolved] = useAtom(veryBusySolvedAtom);
+  const [verseJumpingSolved] = useAtom(verseJumpingSolvedAtom);
+  const [raccoontouilleSolved] = useAtom(raccoontouilleSolvedAtom);
+  const [metaSolved] = useAtom(metaSolvedAtom);
+
+  const puzzleLinkClasses = cva(
+    [
+      "rounded-lg",
+      "py-2.5",
+      "text-center",
+      "tracking-wider",
+      "text-black",
+      "hover:opacity-75",
+    ],
+    {
+      variants: {
+        isVertical: {
+          true: ["px-2", "row-span-4"],
+          false: ["py-2.5", "col-span-4"],
+        },
+        isSolved: {
+          true: ["text-white", "bg-black", "border-2", "border-white"],
+          false: ["text-black", "bg-white"],
+        },
+      },
+    },
+  );
+
   return (
     <>
       <HeadTemplate />
@@ -41,32 +79,47 @@ export default function Home() {
           <div className="grid w-72 grid-cols-5 grid-rows-4 gap-4 text-lg font-medium">
             <Link
               href="/puzzles/tax-forms"
-              className="col-span-4 rounded-lg bg-white py-2.5 text-center tracking-wider text-black hover:opacity-75"
+              className={puzzleLinkClasses({
+                isVertical: false,
+                isSolved: taxFormsSolved,
+              })}
             >
               Tax Forms
             </Link>
             <Link
               href="/puzzles/meta"
-              className="row-span-4 rounded-lg bg-white px-2 text-center tracking-wider text-black hover:opacity-75"
+              className={puzzleLinkClasses({
+                isVertical: true,
+                isSolved: metaSolved,
+              })}
               style={{ writingMode: "vertical-rl" }}
             >
               [ META PUZZLE ]
             </Link>
             <Link
               href="/puzzles/very-busy"
-              className="col-span-4 rounded-lg bg-white py-2.5 text-center tracking-wider text-black hover:opacity-75"
+              className={puzzleLinkClasses({
+                isVertical: false,
+                isSolved: veryBusySolved,
+              })}
             >
               Very Busy!
             </Link>
             <Link
               href="/puzzles/verse-jumping"
-              className="col-span-4 rounded-lg bg-white py-2.5 text-center tracking-wider text-black hover:opacity-75"
+              className={puzzleLinkClasses({
+                isVertical: false,
+                isSolved: verseJumpingSolved,
+              })}
             >
               Verse-Jumping
             </Link>
             <Link
               href="/puzzles/raccoontouille"
-              className="col-span-4 rounded-lg bg-white py-2.5 text-center tracking-wider text-black hover:opacity-75"
+              className={puzzleLinkClasses({
+                isVertical: false,
+                isSolved: raccoontouilleSolved,
+              })}
             >
               Raccoontouille
             </Link>

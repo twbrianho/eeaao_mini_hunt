@@ -1,10 +1,12 @@
 import DonutBackground from "~/components/DonutBackground";
 import GuessInput from "~/components/GuessInput";
 import { Bungee, Gabarito, JetBrains_Mono } from "next/font/google";
-import { type ReactNode, useState } from "react";
+import { type ReactNode } from "react";
 import { api } from "~/utils/api";
 import PageLoadingSpinner from "~/components/PageLoadingSpinner";
 import HeadTemplate from "~/components/HeadTemplate";
+import Link from "next/link";
+import { type Atom, useAtom } from "jotai";
 
 const bungee = Bungee({
   weight: "400",
@@ -23,6 +25,7 @@ interface PuzzleTemplateProps {
   puzzleId: number;
   title: string;
   flavortext?: ReactNode;
+  puzzleSolvedAtom: Atom<boolean>;
 }
 
 export default function PuzzleTemplate(
@@ -34,7 +37,7 @@ export default function PuzzleTemplate(
     isError,
   } = api.puzzle.getPuzzle.useQuery({ id: props.puzzleId });
 
-  const [isSolved, setIsSolved] = useState(false);
+  const [isSolved, setIsSolved] = useAtom(props.puzzleSolvedAtom);
 
   if (isError) {
     return (
@@ -67,6 +70,14 @@ export default function PuzzleTemplate(
           " flex min-h-screen flex-col items-center bg-black/50 p-8"
         }
       >
+        <div className="w-full">
+          <Link
+            href="/"
+            className="rounded bg-white px-3 py-2 text-black shadow"
+          >
+            Back
+          </Link>
+        </div>
         <DonutBackground />
         <div className="container flex max-w-xl flex-col items-center gap-5 sm:gap-10">
           <div className="flex flex-col gap-5 pt-20 text-center sm:pt-40">

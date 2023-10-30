@@ -1,7 +1,14 @@
+import PuzzleTemplate from "~/components/PuzzleTemplate";
+import { veryBusySolvedAtom } from "~/utils/atoms";
+
 export default function VeryBusy() {
   return (
-    <div>
-      <h1>Very Busy!</h1>
-    </div>
-  )
-};
+    <PuzzleTemplate
+      puzzleId={2}
+      title="Very Busy!"
+      puzzleSolvedAtom={veryBusySolvedAtom}
+    >
+      <div></div>
+    </PuzzleTemplate>
+  );
+}

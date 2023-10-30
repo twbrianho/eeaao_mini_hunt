@@ -6,6 +6,7 @@ import AKB48TaxForm from "~/components/tax-forms/AKB48TaxForm";
 import IPv6TaxForm from "~/components/tax-forms/IPv6TaxForm";
 import K2TaxForm from "~/components/tax-forms/K2TaxForm";
 import MI6TaxForm from "~/components/tax-forms/MI6TaxForm";
+import { taxFormsSolvedAtom } from "~/utils/atoms";
 
 enum TaxForm {
   D20 = "D20",
@@ -27,7 +28,11 @@ export default function TaxForms() {
   };
 
   return (
-    <PuzzleTemplate puzzleId={1} title="Tax Forms">
+    <PuzzleTemplate
+      puzzleId={1}
+      title="Tax Forms"
+      puzzleSolvedAtom={taxFormsSolvedAtom}
+    >
       <div className="flex flex-col justify-center gap-y-5">
         <h3>
           {

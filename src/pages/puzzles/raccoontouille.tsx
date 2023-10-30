@@ -6,13 +6,15 @@ import Raccoon3 from "../../images/Raccoon3.png";
 import Raccoon4 from "../../images/Raccoon4.png";
 import Raccoon5 from "../../images/Raccoon5.png";
 import GuessCharacterInput from "~/components/raccoontouille/GuessCharacterInput";
+import { raccoontouilleSolvedAtom } from "~/utils/atoms";
 
 export default function Raccoontouille() {
   return (
     <PuzzleTemplate
       puzzleId={4}
       title="Raccoontouille"
-      flavortext="These raccoons are out of control! How can you keep them from invading movies?"
+      flavortext="These raccoons are out of control! How can you keep them from invading all these classic movies?"
+      puzzleSolvedAtom={raccoontouilleSolvedAtom}
     >
       <div className="flex flex-col justify-center gap-y-5">
         <div>
