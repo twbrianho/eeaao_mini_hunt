@@ -100,6 +100,18 @@ export default function AKB48TaxForm() {
           )),
         )}
       </div>
+      <div className="flex gap-x-2 rounded-lg bg-orange-900/10 px-3 py-2 text-xs">
+        <p className="font-bold">Legend:</p>
+        <div className="flex items-center">
+          <CurrencyYenIcon className="mr-1 h-4 w-4" />
+          <p>taxable</p>
+        </div>
+        <p>|</p>
+        <div className="flex items-center">
+          <UserIcon className="mr-1 h-4 w-4" />
+          <p>tax-exempt</p>
+        </div>
+      </div>
       <ul className="flex flex-col gap-y-2">
         {SPONSOR_RULES.map((rule, idx) => (
           <li key={idx} className="flex items-center gap-x-1">
