@@ -30,7 +30,7 @@ export default function Meta() {
         <>
           You have all the ingredients to build an everything bagel now! Well,{" "}
           <i>almost</i> everything — each sector still seems to be missing
-          something. Where can you find the missing ingredients for your
+          something. What should you do to get the missing ingredients for your
           everything bagel?
         </>
       }
