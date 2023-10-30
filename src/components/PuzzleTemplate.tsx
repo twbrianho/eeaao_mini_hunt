@@ -1,12 +1,13 @@
 import DonutBackground from "~/components/DonutBackground";
 import GuessInput from "~/components/GuessInput";
 import { Bungee, Gabarito, JetBrains_Mono } from "next/font/google";
-import { type ReactNode } from "react";
+import { type ReactNode, useEffect, useRef } from "react";
 import { api } from "~/utils/api";
 import PageLoadingSpinner from "~/components/PageLoadingSpinner";
 import HeadTemplate from "~/components/HeadTemplate";
 import Link from "next/link";
 import { type Atom, useAtom } from "jotai";
+import JSConfetti from "js-confetti";
 
 const bungee = Bungee({
   weight: "400",
@@ -39,6 +40,33 @@ export default function PuzzleTemplate(
 
   const [isSolved, setIsSolved] = useAtom(props.puzzleSolvedAtom);
 
+  const jsConfetti = useRef<JSConfetti>();
+
+  useEffect(() => {
+    jsConfetti.current = new JSConfetti();
+    return () => jsConfetti.current?.clearCanvas();
+  }, []);
+
+  useEffect(() => {
+    if (isSolved) {
+      void jsConfetti.current?.addConfetti({
+        confettiColors: [
+          "#ffffff",
+          "#dddddd",
+          "#cccccc",
+          "#aaaaaa",
+          "#999999",
+          "#777777",
+          "#555555",
+          "#333333",
+          "#111111",
+        ],
+        confettiRadius: 10,
+        confettiNumber: 100,
+      });
+    }
+  }, [isSolved]);
+
   if (isError) {
     return (
       <div className="flex h-screen w-screen flex-col items-center justify-center gap-y-5 p-10">
@@ -59,6 +87,7 @@ export default function PuzzleTemplate(
       </div>
     );
   }
+
   if (!puzzleData) return <PageLoadingSpinner />;
 
   return (
