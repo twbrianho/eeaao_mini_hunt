@@ -4,10 +4,10 @@ import { useState } from "react";
 import { ArrowLeftIcon } from "@heroicons/react/20/solid";
 import { Trait } from "~/utils/verse-jumping/trait";
 import { type Universe, UNIVERSES } from "~/utils/verse-jumping/universes";
-import { Chivo_Mono } from "next/font/google";
+import { JetBrains_Mono } from "next/font/google";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 
-const chivoMono = Chivo_Mono({
+const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin-ext"],
 });
 
@@ -132,13 +132,13 @@ export default function VerseJumping() {
                 <ul className="mt-2">
                   {removedTraits?.map((trait, index) => (
                     <li key={index} className={"text-rose-600"}>
-                      <p className={chivoMono.className + " inline"}>– </p>
+                      <p className={jetBrainsMono.className + " inline"}>– </p>
                       {trait}
                     </li>
                   ))}
                   {addedTraits?.map((trait, index) => (
                     <li key={index} className="text-emerald-600">
-                      <p className={chivoMono.className + " inline"}>+ </p>
+                      <p className={jetBrainsMono.className + " inline"}>+ </p>
                       {trait}
                     </li>
                   ))}

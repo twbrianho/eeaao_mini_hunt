@@ -1,6 +1,6 @@
 import DonutBackground from "~/components/DonutBackground";
 import GuessInput from "~/components/GuessInput";
-import { Bungee, Chivo_Mono, Gabarito } from "next/font/google";
+import { Bungee, Gabarito, JetBrains_Mono } from "next/font/google";
 import { type ReactNode, useState } from "react";
 import { api } from "~/utils/api";
 import PageLoadingSpinner from "~/components/PageLoadingSpinner";
@@ -11,7 +11,7 @@ const bungee = Bungee({
   subsets: ["latin"],
 });
 
-const chivoMono = Chivo_Mono({
+const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin-ext"],
 });
 
@@ -47,7 +47,7 @@ export default function PuzzleTemplate(
         </p>
         <p
           className={
-            chivoMono.className +
+            jetBrainsMono.className +
             " max-w-xl rounded-lg bg-gray-900 px-4 py-3 text-xs text-gray-400"
           }
         >
