@@ -13,7 +13,7 @@ export default function HeadTemplate(props: HeadProps) {
       <title>{title}</title>
       <meta
         name="description"
-        content="An EEAAO-themed mini puzzle hunt featuring 4 small puzzles and 1 meta puzzle."
+        content="A mini puzzle hunt based on Everything Everywhere All At Once, featuring 4 tiny puzzles and 1 meta puzzle."
       />
       <meta
         name="keywords"
@@ -24,6 +24,12 @@ export default function HeadTemplate(props: HeadProps) {
         property="og:image"
         content="https://eeaao-mini-hunt.vercel.app/Thumbnail.png"
       />
+      <meta
+        property="og:description"
+        content="A mini puzzle hunt based on Everything Everywhere All At Once, featuring 4 tiny puzzles and 1 meta puzzle."
+      />
+      <meta property="og:url" content="https://eeaao-mini-hunt.vercel.app/" />
+      <meta property="og:type" content="website" />
       <link rel="icon" href="/favicon.png" />
     </Head>
   );
