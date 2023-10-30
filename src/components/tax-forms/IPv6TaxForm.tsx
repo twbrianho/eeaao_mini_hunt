@@ -23,7 +23,6 @@ export default function IPv6TaxForm() {
 
   useEffect(() => {
     const loop = setInterval(async () => {
-      console.log("STARTING LOOP...");
       await turnLightOn(true);
       await turnLightOn(false);
       await turnLightOn(false);
@@ -35,7 +34,6 @@ export default function IPv6TaxForm() {
   const color = isLightOn
     ? "opacity-100 animate-opacity-up"
     : "opacity-10 animate-opacity-down";
-  console.log(color);
 
   return (
     <TaxFormTemplate
