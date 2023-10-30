@@ -1,8 +1,7 @@
-import Head from "next/head";
-
 import { Bungee, Gabarito } from "next/font/google";
 import Link from "next/link";
 import DonutBackground from "~/components/DonutBackground";
+import HeadTemplate from "~/components/HeadTemplate";
 
 const bungee = Bungee({
   weight: "400",
@@ -16,11 +15,7 @@ const gabarito = Gabarito({
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>EEAAO Mini Puzzle Hunt</title>
-        <meta name="description" content="EEAAO-themed mini puzzle hunt" />
-        <link rel="icon" href="/favicon.png" />
-      </Head>
+      <HeadTemplate />
       <main
         className={
           gabarito.className +

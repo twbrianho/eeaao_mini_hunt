@@ -1,10 +1,10 @@
-import Head from "next/head";
 import DonutBackground from "~/components/DonutBackground";
 import GuessInput from "~/components/GuessInput";
 import { Bungee, Chivo_Mono, Gabarito } from "next/font/google";
 import { type ReactNode, useState } from "react";
 import { api } from "~/utils/api";
 import PageLoadingSpinner from "~/components/PageLoadingSpinner";
+import HeadTemplate from "~/components/HeadTemplate";
 
 const bungee = Bungee({
   weight: "400",
@@ -60,11 +60,7 @@ export default function PuzzleTemplate(
 
   return (
     <>
-      <Head>
-        <title>EEAAO Mini Hunt | {props.title}</title>
-        <meta name="description" content="EEAAO-themed mini puzzle hunt" />
-        <link rel="icon" href="/favicon.png" />
-      </Head>
+      <HeadTemplate subtitle={puzzleData.title} />
       <main
         className={
           gabarito.className +
