@@ -11,7 +11,10 @@ export default function HeadTemplate(props: HeadProps) {
   return (
     <Head>
       <title>{title}</title>
-      <meta name="description" content="EEAAO-themed mini puzzle hunt" />
+      <meta
+        name="description"
+        content="An EEAAO-themed mini puzzle hunt featuring 4 small puzzles and 1 meta puzzle."
+      />
       <meta
         name="keywords"
         content="EEAAO, Everything Everywhere All At Once, Puzzle, Hunt, Game"
