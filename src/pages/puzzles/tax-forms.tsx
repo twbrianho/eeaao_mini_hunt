@@ -35,11 +35,11 @@ export default function TaxForms() {
           }
         </h3>
         <ul className="ml-4 flex list-disc flex-col gap-y-2">
-          <li>A die notably used in DnD</li>
-          <li>{"Akihabara's famous idol group"}</li>
           <li>The latest Internet Protocol</li>
-          <li>The second-highest mountain on Earth</li>
+          <li>{"Akihabara's famous idol group"}</li>
+          <li>A die notably used in DnD</li>
           <li>{"UK's Secret Intelligence Service"}</li>
+          <li>The second-highest mountain on Earth</li>
         </ul>
         <GuessTaxFormInput
           guessInput={guessInput}
