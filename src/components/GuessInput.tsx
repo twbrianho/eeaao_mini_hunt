@@ -41,7 +41,7 @@ export default function GuessInput(props: GuessInputProps) {
 
   const handleGuessSubmit = (e: FormEvent): void => {
     e.preventDefault();
-    if (guessInput === "") return;
+    if (guessInput === "" || isSolved) return;
     if (guessInput === puzzleData.answer) {
       setIsSolved(true);
     } else {
@@ -73,12 +73,13 @@ export default function GuessInput(props: GuessInputProps) {
             value={guessInput}
             onChange={handleGuessChange}
             disabled={isSolved}
-            className="block w-full rounded-none rounded-l-md border-0 px-3 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+            className="block w-full rounded-none rounded-l-md border-0 px-3 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 disabled:bg-emerald-400/20 disabled:text-emerald-500 sm:text-sm sm:leading-6"
           />
         </div>
         <button
           type="submit"
-          className="relative -ml-px inline-flex items-center gap-x-1.5 rounded-r-md bg-gray-50 px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-200"
+          disabled={isSolved}
+          className="relative -ml-px inline-flex items-center gap-x-1.5 rounded-r-md bg-gray-50 px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-200 disabled:hover:bg-gray-50"
         >
           <ArrowRightCircleIcon
             className="-ml-0.5 h-5 w-5 text-gray-400"
