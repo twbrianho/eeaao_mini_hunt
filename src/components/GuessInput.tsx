@@ -4,10 +4,12 @@ import { api } from "~/utils/api";
 import { type PuzzleData } from "~/utils/types";
 import { CheckCircleIcon, XCircleIcon } from "@heroicons/react/20/solid";
 import PageLoadingSpinner from "~/components/PageLoadingSpinner";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 interface GuessHistory {
   guess: string;
   correct: boolean;
+  timestamp: string;
 }
 
 interface GuessInputProps {
@@ -24,6 +26,8 @@ export default function GuessInput(props: GuessInputProps) {
 
   const postGuessMutation = api.puzzle.postGuess.useMutation();
 
+  const [guessesParent] = useAutoAnimate();
+
   if (!puzzleData) return <PageLoadingSpinner />;
 
   const handleGuessChange = (e: ChangeEvent<HTMLInputElement>): void => {
@@ -38,7 +42,14 @@ export default function GuessInput(props: GuessInputProps) {
       isCorrect = true;
       setIsSolved(true);
     }
-    setGuesses((prev) => [{ guess: guessInput, correct: isCorrect }, ...prev]);
+    setGuesses((prev) => [
+      {
+        guess: guessInput,
+        correct: isCorrect,
+        timestamp: new Date().toISOString(),
+      },
+      ...prev,
+    ]);
 
     // Not worried if it succeeds, just logging guesses if possible
     postGuessMutation.mutate({
@@ -62,13 +73,13 @@ export default function GuessInput(props: GuessInputProps) {
         />
         <div className="absolute inset-y-0 right-0 flex py-1.5 pr-1.5">
           <kbd className="inline-flex items-center rounded border border-gray-200 px-1 font-sans text-xs text-gray-400">
-            ⏎
+            Enter ⏎
           </kbd>
         </div>
       </form>
-      <ol className="gap-y-2 pt-2">
-        {guesses.map((guess, index) => (
-          <li key={index} className="flex items-center gap-x-1">
+      <ol ref={guessesParent} className="gap-y-2 pt-2">
+        {guesses.map((guess) => (
+          <li key={guess.timestamp} className="flex items-center gap-x-1">
             {guess.correct ? (
               <CheckCircleIcon className="h-4 w-4 text-emerald-600" />
             ) : (
