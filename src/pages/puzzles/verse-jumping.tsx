@@ -106,9 +106,9 @@ export default function VerseJumping() {
       flavortext={
         <p>
           {
-            "There's no puzzle for this one, and I'm the only one who knows the answer! The only way you'll get the answer is by verse-jumping to a parallel universe where you become... "
+            "There's no puzzle for this one, and I'm the only one who knows the answer. The only way you'll get the answer is by verse-jumping to a parallel universe where you become "
           }
-          <i>me!</i>
+          <i>me.</i>
         </p>
       }
       puzzleSolvedAtom={verseJumpingSolvedAtom}
