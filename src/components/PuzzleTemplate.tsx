@@ -96,7 +96,7 @@ export default function PuzzleTemplate(
       <main
         className={
           gabarito.className +
-          " flex min-h-screen flex-col items-center bg-black/50 p-8"
+          " flex min-h-screen flex-col items-center bg-black/50 p-8 selection:bg-gray-400/50"
         }
       >
         <div className="w-full">

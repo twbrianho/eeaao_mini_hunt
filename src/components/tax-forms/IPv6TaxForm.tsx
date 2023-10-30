@@ -22,11 +22,13 @@ export default function IPv6TaxForm() {
   };
 
   useEffect(() => {
-    const loop = setInterval(async () => {
-      await turnLightOn(true);
-      await turnLightOn(false);
-      await turnLightOn(false);
-      void turnLightOn(false);
+    const loop = setInterval(() => {
+      void (async () => {
+        await turnLightOn(true);
+        await turnLightOn(false);
+        await turnLightOn(false);
+        void turnLightOn(false);
+      })();
     }, TICK * 15);
     return () => clearInterval(loop);
   }, []);

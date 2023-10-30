@@ -17,7 +17,7 @@ export default function TaxFormTemplate(
     <div
       className={jetBrainsMono.className + " bg-orange-50 p-1 text-orange-950"}
     >
-      <div className="border-2 border-dashed border-orange-950/30 px-4 py-3 selection:bg-orange-700">
+      <div className="border-2 border-dashed border-orange-950/30 px-4 py-3">
         <h2 className="text-xl font-black tracking-wider">
           Form {props.title}
         </h2>

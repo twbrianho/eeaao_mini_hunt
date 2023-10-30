@@ -120,7 +120,7 @@ export default function VerseJumping() {
             ref={traitsParent}
             className="flex list-disc flex-col gap-y-0.5 pl-4 pt-1 text-sm"
           >
-            {traitSetHistory[currStep]?.map((trait, index) => (
+            {traitSetHistory[currStep]?.map((trait) => (
               <li key={trait}>{trait}</li>
             ))}
           </ul>
