@@ -2,13 +2,12 @@ import { type ChangeEvent, type FormEvent, useEffect, useState } from "react";
 import sanitizeGuess from "~/utils/sanitizeGuess";
 import { api } from "~/utils/api";
 import { type PuzzleData } from "~/utils/types";
-import { CheckCircleIcon, XCircleIcon } from "@heroicons/react/20/solid";
+import { XCircleIcon } from "@heroicons/react/20/solid";
 import PageLoadingSpinner from "~/components/PageLoadingSpinner";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 interface GuessHistory {
   guess: string;
-  correct: boolean;
   timestamp: string;
 }
 
@@ -43,19 +42,17 @@ export default function GuessInput(props: GuessInputProps) {
   const handleGuessSubmit = (e: FormEvent): void => {
     e.preventDefault();
     if (guessInput === "") return;
-    let isCorrect = false;
     if (guessInput === puzzleData.answer) {
-      isCorrect = true;
       setIsSolved(true);
+    } else {
+      setGuesses((prev) => [
+        {
+          guess: guessInput,
+          timestamp: new Date().toISOString(),
+        },
+        ...prev,
+      ]);
     }
-    setGuesses((prev) => [
-      {
-        guess: guessInput,
-        correct: isCorrect,
-        timestamp: new Date().toISOString(),
-      },
-      ...prev,
-    ]);
 
     // Not worried if it succeeds, just logging guesses if possible
     postGuessMutation.mutate({
@@ -86,11 +83,7 @@ export default function GuessInput(props: GuessInputProps) {
       <ol ref={guessesParent} className="gap-y-2 pt-2">
         {guesses.map((guess) => (
           <li key={guess.timestamp} className="flex items-center gap-x-1">
-            {guess.correct ? (
-              <CheckCircleIcon className="h-4 w-4 text-emerald-600" />
-            ) : (
-              <XCircleIcon className="h-4 w-4 text-rose-600" />
-            )}
+            <XCircleIcon className="h-4 w-4 text-rose-600" />
             {guess.guess}
           </li>
         ))}
