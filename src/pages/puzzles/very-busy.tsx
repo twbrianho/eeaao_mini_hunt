@@ -4,7 +4,6 @@ import { useAtom } from "jotai";
 import { useEffect } from "react";
 
 const PHRASES = [
-  "[Puzzle under construction]", // <- No one should see this one, since the first visit starts us at index 1
   "Hey, sorry, I'm too busy to do this puzzle right now. Check back later!",
   "Oh hey you're back. I'm still busy though. Maybe try again in a bit?",
   "Hi again. Yes, I'm still busy. I'll get to this eventually, I promise.",
@@ -20,10 +19,8 @@ export default function VeryBusy() {
   const phrase = PHRASES[Math.min(timesVisited, PHRASES.length - 1)];
 
   useEffect(() => {
-    setTimesVisited((prev) => prev + 1);
+    return () => setTimesVisited((prev) => prev + 1);
   }, [setTimesVisited]);
-
-  console.log("timesVisited", timesVisited);
 
   return (
     <PuzzleTemplate
@@ -31,17 +28,21 @@ export default function VeryBusy() {
       title="Very Busy!"
       puzzleSolvedAtom={veryBusySolvedAtom}
     >
-      <p>{phrase}</p>
-      {timesVisited >= PHRASES.length - 1 && (
-        <p className="mt-4 text-6xl font-semibold tracking-widest">ETA</p>
-      )}
-      {timesVisited >= PHRASES.length && (
-        <p className="mt-4">
-          {
-            "Are you... back again? I am flattered that you'd still come back to visit me after getting the answer, but just so you know: there's truly nothing else to see here."
-          }
-        </p>
-      )}
+      <div className="flex max-w-lg flex-col gap-y-5">
+        <p>{phrase}</p>
+        {timesVisited >= PHRASES.length - 1 && (
+          <p className="text-center text-6xl font-semibold tracking-widest">
+            ETA
+          </p>
+        )}
+        {timesVisited >= PHRASES.length && (
+          <p className="opacity-50">
+            {
+              "Are you... back again? I'm flattered that you'd still come back to visit me after getting the answer, but just so you know: there's truly nothing else to see here."
+            }
+          </p>
+        )}
+      </div>
     </PuzzleTemplate>
   );
 }
