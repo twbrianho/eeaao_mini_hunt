@@ -11,6 +11,7 @@ import {
   veryBusySolvedAtom,
 } from "~/utils/atoms";
 import { useAtom } from "jotai";
+import Leaderboard from "~/components/Leaderboard";
 
 const bungee = Bungee({
   weight: "400",
@@ -125,6 +126,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
+        {metaSolved && <Leaderboard />}
         <div className="fixed bottom-2 flex gap-x-1 rounded bg-black px-1 py-0.5 text-xs tracking-wide">
           <p>
             Hunt made by{" "}
@@ -138,7 +140,7 @@ export default function Home() {
           </p>
           <p>|</p>
           <p>
-            Everything Bagel made by{" "}
+            Everything Bagel by{" "}
             <a
               target="_blank"
               href="https://www.artstation.com/artwork/NGzyLN"

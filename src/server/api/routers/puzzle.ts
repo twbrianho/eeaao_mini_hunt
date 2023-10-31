@@ -23,4 +23,22 @@ export const puzzleRouter = createTRPCRouter({
         },
       });
     }),
+
+  postWinner: publicProcedure
+    .input(z.object({ name: z.string().min(1) }))
+    .mutation(async ({ ctx, input }) => {
+      return ctx.db.winner.create({
+        data: {
+          name: input.name,
+        },
+      });
+    }),
+
+  getWinners: publicProcedure.query(async ({ ctx }) => {
+    return ctx.db.winner.findMany({
+      orderBy: {
+        createdAt: "asc",
+      },
+    });
+  }),
 });

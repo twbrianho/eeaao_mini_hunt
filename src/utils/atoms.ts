@@ -13,3 +13,5 @@ export const raccoontouilleSolvedAtom = atomWithStorage(
   false,
 );
 export const metaSolvedAtom = atomWithStorage("metaSolvedAtom", false);
+
+export const nameSubmittedAtom = atomWithStorage("nameSubmittedAtom", false);
