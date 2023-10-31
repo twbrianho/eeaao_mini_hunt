@@ -62,6 +62,7 @@ export default function Home() {
         }
       >
         <DonutBackground />
+        <Leaderboard />
         <div className="container flex flex-col items-center justify-center gap-10">
           <div className="flex flex-col gap-5">
             <h1
@@ -126,7 +127,6 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        {metaSolved && <Leaderboard />}
         <div className="fixed bottom-2 flex gap-x-1 rounded bg-black px-1 py-0.5 text-xs tracking-wide">
           <p>
             Hunt made by{" "}
