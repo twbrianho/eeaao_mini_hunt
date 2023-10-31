@@ -123,7 +123,7 @@ export default function Home() {
                 isSolved: raccoontouilleSolved,
               })}
             >
-              Raccoontouille
+              Raccoocoonie
             </Link>
           </div>
         </div>
