@@ -49,21 +49,44 @@ export default function PuzzleTemplate(
 
   useEffect(() => {
     if (isSolved) {
-      void jsConfetti.current?.addConfetti({
-        confettiColors: [
-          "#ffffff",
-          "#dddddd",
-          "#cccccc",
-          "#aaaaaa",
-          "#999999",
-          "#777777",
-          "#555555",
-          "#333333",
-          "#111111",
-        ],
-        confettiRadius: 10,
-        confettiNumber: 100,
-      });
+      if (puzzleData?.id === 5) {
+        // Special effects for meta puzzle
+        void jsConfetti.current?.addConfetti({
+          confettiColors: [
+            "#f43f5e",
+            "#ef4444",
+            "#f97316",
+            "#f59e0b",
+            "#84cc16",
+            "#14b8a6",
+            "#0ea5e9",
+            "#8b5cf6",
+          ],
+          confettiRadius: 5,
+          confettiNumber: 1000,
+        });
+        void jsConfetti.current?.addConfetti({
+          emojis: ["🎉", "🎊", "🎈", "🥳"],
+          confettiRadius: 10,
+          confettiNumber: 100,
+        });
+      } else {
+        void jsConfetti.current?.addConfetti({
+          confettiColors: [
+            "#ffffff",
+            "#dddddd",
+            "#cccccc",
+            "#aaaaaa",
+            "#999999",
+            "#777777",
+            "#555555",
+            "#333333",
+            "#111111",
+          ],
+          confettiRadius: 10,
+          confettiNumber: 300,
+        });
+      }
     }
   }, [isSolved]);
 
