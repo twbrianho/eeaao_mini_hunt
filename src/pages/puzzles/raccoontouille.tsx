@@ -12,7 +12,7 @@ export default function Raccoontouille() {
   return (
     <PuzzleTemplate
       puzzleId={4}
-      title="Raccoontouille"
+      title="Raccoocoonie"
       flavortext="These raccoons are out of control! How can you keep them from invading all these classic movies?"
       puzzleSolvedAtom={raccoontouilleSolvedAtom}
     >
