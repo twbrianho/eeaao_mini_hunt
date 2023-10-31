@@ -125,16 +125,29 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        <p className="fixed bottom-2 rounded bg-black px-1 py-0.5 text-xs tracking-wide">
-          Everything Bagel made by{" "}
-          <a
-            target="_blank"
-            href="https://www.artstation.com/artwork/NGzyLN"
-            className="underline"
-          >
-            Sol Blackshaw
-          </a>
-        </p>
+        <div className="fixed bottom-2 flex gap-x-1 rounded bg-black px-1 py-0.5 text-xs tracking-wide">
+          <p>
+            Hunt made by{" "}
+            <a
+              target="_blank"
+              href="https://www.brianslho.info/"
+              className="underline"
+            >
+              Brian Ho
+            </a>
+          </p>
+          <p>|</p>
+          <p>
+            Everything Bagel made by{" "}
+            <a
+              target="_blank"
+              href="https://www.artstation.com/artwork/NGzyLN"
+              className="underline"
+            >
+              Sol Blackshaw
+            </a>
+          </p>
+        </div>
       </main>
     </>
   );
