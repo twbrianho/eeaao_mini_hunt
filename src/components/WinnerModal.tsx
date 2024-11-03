@@ -87,29 +87,18 @@ export default function WinnerModal(props: WinnerModalProps) {
                     </Dialog.Title>
                     <div className="mt-2">
                       <p className="text-sm text-gray-300">
-                        You finished the hunt! Leave your name below if you want
-                        to be added to the leaderboard!
+                        You finished the hunt! Thanks for playing!
                       </p>
                     </div>
                   </div>
                 </div>
-                <form onSubmit={handleSubmit}>
-                  <input
-                    type="text"
-                    placeholder="Enter your name (or gamer tag)..."
-                    value={name}
-                    onChange={handleChangeName}
-                    maxLength={20}
-                    className="mt-5 block w-full rounded-md border-0 py-1.5 tracking-wide text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:mt-6 sm:leading-6"
-                  />
-                  <button
-                    type="button"
-                    className="mt-2 inline-flex w-full justify-center rounded-md bg-emerald-500 px-3 py-2 font-semibold tracking-wide text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                    onClick={handleSubmit}
-                  >
-                    Submit
-                  </button>
-                </form>
+                <button
+                  type="button"
+                  className="mt-2 inline-flex w-full justify-center rounded-md bg-emerald-500 px-3 py-2 font-semibold tracking-wide text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  onClick={() => setIsOpen(false)}
+                >
+                  K thx bye
+                </button>
               </Dialog.Panel>
             </Transition.Child>
           </div>
