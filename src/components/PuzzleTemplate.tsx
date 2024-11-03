@@ -88,7 +88,7 @@ export default function PuzzleTemplate(
         });
       }
     }
-  }, [isSolved]);
+  }, [isSolved, puzzleData?.id]);
 
   if (isError) {
     return (

@@ -6,6 +6,7 @@ export default function DonutBackground() {
   return (
     <div className="fixed -z-10 flex h-full w-full justify-center overflow-hidden sm:pt-10">
       <Image
+        priority
         alt=""
         src={EverythingBagelAll}
         width={400}
@@ -13,6 +14,7 @@ export default function DonutBackground() {
         className="fixed animate-spin-slower"
       />
       <Image
+        priority
         alt=""
         src={EverythingBagelCenter}
         width={400}
